@@ -1,15 +1,23 @@
-const config = require('dotenv').config().parsed;
+require('dotenv').config();
+
 const client = require('twilio')(
-  config.TWILIO_ACCOUNT_SID,
-  config.TWILIO_AUTH_TOKEN
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN
 ); 
+
+const messageSent = (message)=>{
+  let attributes = ['body', 'errorCode', 'errorMessage', 'sid', 'status', 'from', 'to'];
+  console.log('============= message sent ============');
+  attributes.map(a=>console.log(a, '=>', message[a]));
+  console.log('=======================================');
+}
  
 const message = (content)=>{
   client.messages.create({  
-    from: config.TWILIO_PHONE_FROM,       
-    to: config.TWILIO_PHONE_TO,
+    from: process.env.TWILIO_PHONE_FROM,       
+    to:   process.env.TWILIO_PHONE_TO,
     body: content,
-  }).then(message => console.log(message.sid)).done();
+  }).then(message => messageSent(message)).done();
 }
 
 module.exports = { message };

@@ -5,9 +5,9 @@ const { JSDOM } = jsdom;
 const parse = (body)=> {
   let dom = new JSDOM(body);
   let document = dom.window.document;
-  let response = {}
-  // ... parse document and modify response ...
-  return response 
+  // ... parse document and craft message ...
+  let message = `Hello from '${document.title}'`;
+  return message;
 }
 
 module.exports = { parse };
