@@ -1,5 +1,5 @@
 # node-fetch-twilio-text
-Node application that fetches HTML from a URL, parses it, and sends a text with the result using the twilio API. Requires a [twilio](https://www.twilio.com/) API Key.
+Node application that fetches a web page, parses and processes the HTML, and texts the result to a phone number using the twilio API. Requires a [twilio](https://www.twilio.com/) API Key.
 
 ## Dependencies
 
