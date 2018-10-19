@@ -2,9 +2,9 @@
 
 require('dotenv').config();
 
-const { fetch } = require('./fetch');
-const { parse } = require('./parse');
-const { message } = require('./message');
+const { fetch } = require('./lib/fetch');
+const { parse } = require('./lib/parse');
+const { message } = require('./lib/message');
 
 fetch(process.env.FETCH_URL,
   (body)=>{
